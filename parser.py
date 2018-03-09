@@ -31,5 +31,15 @@ The file follows the following format:
 
 See the file script for an example of the file format
 """
-def parse_file( fname, points, transform, screen, color ):
-    pass
+def _raw_input(file):
+	try:
+		return raw_input()
+	except EOFError:
+		return None
+
+def _file(file)
+
+def parse_file( fname ):
+	global edges, transfrom, screen, color
+	if fname == '-':
+		
