@@ -2,14 +2,13 @@ import math
 
 def make_translate( x, y, z ):
 	m = ident(4)
-	c = len(m[0]) - 1
-	m[0][c] = x
-	m[1][c] = y
-	m[2][c] = z
+	m[3][0] = x
+	m[3][1] = y
+	m[3][2] = z
 	return m
 
 def make_scale( x, y, z ):
-	m = new_matrix(rows,cols)
+	m = new_matrix(4,4)
 	m[0][0] = x
 	m[1][1] = y
 	m[2][2] = z
@@ -17,13 +16,31 @@ def make_scale( x, y, z ):
 	return m
 
 def make_rotX( theta ):    
-    pass
+    return \
+		[
+			[  1 ,         0       ,         0       , 0 ],
+			[  0 , math.cos(theta) , math.sin(theta) , 0 ],
+			[  0 ,-math.sin(theta) , math.cos(theta) , 0 ],
+			[  0 ,         1       ,         0       , 1 ],
+		]
 
 def make_rotY( theta ):
-    pass
+	return \
+		[
+			[ math.cos(theta) ,   0,-math.sin(theta) , 0 ],
+			[         0       ,   1,         0       , 0 ],
+			[ math.sin(theta) ,   0, math.cos(theta) , 0 ],
+			[         0       ,   0,         0       , 1 ],
+		]
 
 def make_rotZ( theta ):
-    pass
+	return \
+		[
+			[  math.cos(theta),  math.sin(theta),   0, 0 ],
+			[ -math.sin(theta),  math.cos(theta),   0, 0 ],
+			[         0       ,         0       ,   1, 0 ],
+			[         0       ,         0       ,   0, 1 ],
+		]
 
 def print_matrix( matrix ):
 	rows = len(matrix)
